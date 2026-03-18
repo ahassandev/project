@@ -9,7 +9,6 @@ class CallbackRequest extends Model
     protected $fillable = [
         'name',
         'email',
-        'service',
         'phone',
         'message',
     ];
