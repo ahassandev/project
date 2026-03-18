@@ -22,6 +22,7 @@ const props = defineProps<{
             children?: Array<{ id: number; title: string; slug: string }>;
         }>;
     }>;
+    about: any;
 }>();
 </script>
 
@@ -33,7 +34,7 @@ const props = defineProps<{
 
         <main class="pt-[110px]">
             <HomeHero />
-            <HomeExpertise />
+            <HomeExpertise :data="about" />
             <HomeCTA />
             <HomeTestimonials />
             <RequestCallback />

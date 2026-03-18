@@ -1,7 +1,7 @@
 <template>
     <!-- Testimonials -->
-    <section class="py-24 bg-slate-900 text-white overflow-hidden relative">
-        <div class="max-w-[1500px] w-full mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <section class="py-16 md:py-24 bg-slate-900 text-white overflow-hidden relative">
+        <div class="max-w-[1500px] w-full mx-auto px-6 grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div class="space-y-10">
                 <div class="space-y-4">
                     <h2 class="text-blue-400 font-black text-sm uppercase tracking-[0.2em]">Testimonials</h2>

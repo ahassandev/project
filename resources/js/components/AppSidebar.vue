@@ -21,6 +21,11 @@ const mainNavItems: NavItem[] = [
         href: '/services',
         icon: Briefcase,
     },
+    {
+        title: 'About Us',
+        href: '/about-edit',
+        icon: Briefcase,
+    },
 ];
 </script>
 

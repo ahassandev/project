@@ -4,6 +4,7 @@ import { ChevronRight } from 'lucide-vue-next';
 
 defineProps<{
     title: string;
+    image: string | null;
     breadcrumbCurrent: string;
 }>();
 </script>
@@ -13,7 +14,7 @@ defineProps<{
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-blue-900/90 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+            <img :src="image || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80'"
                  class="w-full h-full object-cover grayscale opacity-40 translate-y-[-10%]" alt="Professional Background">
         </div>
 

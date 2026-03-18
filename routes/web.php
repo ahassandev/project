@@ -8,12 +8,11 @@ Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canRegister' => Features::enabled(Features::registration()),
         'services' => \App\Models\Service::whereNull('parent_id')->with('children.children')->get(),
+        'about' => \App\Models\About::first(),
     ]);
 })->name('home');
 
-Route::get('/about', function () {
-    return Inertia::render('About');
-})->name('about');
+Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
 Route::get('/contact', function () {
     return Inertia::render('Contact');
@@ -26,6 +25,8 @@ Route::get('/service/{slug}', [\App\Http\Controllers\ServiceController::class, '
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('services', \App\Http\Controllers\ServiceController::class);
+    Route::get('about-edit', [\App\Http\Controllers\AboutController::class, 'edit'])->name('about.edit');
+    Route::post('about-update', [\App\Http\Controllers\AboutController::class, 'update'])->name('about.update');
 });
 
 Route::get('/api/services/top', [\App\Http\Controllers\ServiceController::class, 'topMenu'])->name('services.api.top');

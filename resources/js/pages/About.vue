@@ -7,8 +7,26 @@ import AboutDetails from '@/components/AboutDetails.vue';
 import HomeTestimonials from '@/components/HomeTestimonials.vue';
 import RequestCallback from '@/components/RequestCallback.vue';
 
-defineProps<{
+const props = defineProps<{
     canRegister?: boolean;
+    about: {
+        title: string;
+        mission_title: string;
+        mission_content: string;
+        vision_title: string;
+        vision_content: string;
+        team_content: string;
+        standards_content: string;
+        excellence_content: string;
+        professional_statement: string;
+        hero_image: string | null;
+        expertise_label: string;
+        expertise_title: string;
+        expertise_subtitle: string | null;
+        expertise_description: string | null;
+        expertise_image: string | null;
+        expertise_experience_years: string;
+    };
 }>();
 </script>
 
@@ -20,10 +38,14 @@ defineProps<{
 
         <main class="pt-[110px]">
             <!-- About Hero -->
-            <AboutHero title="About Us" breadcrumbCurrent="About" />
+            <AboutHero 
+                :title="about.title" 
+                :image="about.hero_image ? (about.hero_image.startsWith('http') ? about.hero_image : `/storage/${about.hero_image}`) : null" 
+                breadcrumbCurrent="About" 
+            />
 
             <!-- Detailed Content & Experience -->
-            <AboutDetails />
+            <AboutDetails :about="about" />
 
             <!-- Social Proof for consistency -->
             <HomeTestimonials />

@@ -4,10 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Interfaces\PaginationInterface;
+use App\Traits\PaginatesResources;
 
-class Service extends Model
+class Service extends Model implements PaginationInterface
 {
+    use PaginatesResources;
+
     protected $fillable = ['title', 'slug', 'description', 'image_path', 'parent_id', 'is_top'];
+
+    protected $searchableFields = ['title', 'description'];
 
     protected $casts = [
         'is_top' => 'boolean',

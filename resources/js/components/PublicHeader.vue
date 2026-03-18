@@ -12,10 +12,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import axios from 'axios';
 
 const props = defineProps<{
-    login?: string;
-    register?: string;
-    canRegister?: boolean;
-    user?: any;
+    // Props removed as they are no longer needed for public view
 }>();
 
 const isMenuOpen = ref(false);
@@ -91,7 +88,7 @@ onUnmounted(() => {
                     : 'bg-white py-4 border-slate-100'
             ]"
         >
-            <div class="max-w-[1500px] w-full mx-auto px-6 flex justify-between items-center">
+            <div class="max-w-[1500px] w-full mx-auto px-4 md:px-6 flex justify-between items-center">
             <!-- Logo -->
             <Link href="/" class="flex items-center gap-2 group cursor-pointer">
                 <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl group-hover:rotate-12 transition-transform shadow-lg shadow-blue-600/20">
@@ -166,18 +163,11 @@ onUnmounted(() => {
             </nav>
 
             <!-- Auth / CTA -->
-            <div class="flex items-center gap-6">
-                <template v-if="user || $page.props.auth?.user">
-                    <Link href="/services" class="hidden sm:inline-flex bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-xs font-black transition-all hover:shadow-xl hover:shadow-blue-600/20 active:scale-95 uppercase tracking-widest">
-                        Dashboard
-                    </Link>
-                </template>
-                <template v-else>
-                    <Link href="/login" class="text-xs font-black text-slate-700 hover:text-blue-600 transition-colors tracking-widest uppercase">LOG IN</Link>
-                    <Link v-if="canRegister" href="/register" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-xs font-black transition-all hover:shadow-xl hover:shadow-blue-600/20 active:scale-95 uppercase tracking-widest">
-                        GET A QUOTE
-                    </Link>
-                </template>
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- Only 'Get a Quote' button should appear for all users on public website -->
+                <a href="/#request-a-call-back" class="hidden sm:inline-flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 md:px-8 md:py-3 rounded-full text-[10px] md:text-xs font-black transition-all hover:shadow-xl hover:shadow-blue-600/20 active:scale-95 uppercase tracking-widest">
+                    GET A QUOTE
+                </a>
 
                 <!-- Mobile Menu Button -->
                 <button @click="isMenuOpen = !isMenuOpen" class="md:hidden p-2 text-slate-700 hover:text-blue-600 transition-colors">
@@ -230,6 +220,10 @@ onUnmounted(() => {
                 </div>
 
                 <Link href="/contact" class="hover:text-blue-600 transition-colors border-b border-slate-50 pb-4">Contact</Link>
+
+                <a href="/#request-a-call-back" @click="isMenuOpen = false" class="sm:hidden mt-2 bg-blue-600 hover:bg-blue-700 text-white text-center px-8 py-4 rounded-xl text-xs font-black transition-all shadow-lg shadow-blue-600/20 active:scale-95 uppercase tracking-widest">
+                    GET A QUOTE
+                </a>
             </nav>
         </div>
     </header>

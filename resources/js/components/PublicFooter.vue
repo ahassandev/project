@@ -3,27 +3,11 @@ import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, ArrowRight, Mess
 </script>
 
 <template>
-    <!-- Newsletter Sub-Footer -->
-    <div class="bg-blue-600 py-10">
-        <div class="max-w-[1500px] w-full mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-white space-y-1 text-center md:text-left">
-                <h4 class="text-2xl font-black tracking-tight uppercase">Subscribe to our Newsletter</h4>
-                <p class="text-blue-100 text-sm font-medium">Get the latest updates on ISO standards and certification trends.</p>
-            </div>
-            <div class="w-full max-w-md flex bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/20">
-                <input type="email" placeholder="Enter your email" class="bg-transparent border-none outline-none grow px-4 font-bold text-white placeholder:text-blue-200/60" />
-                <button class="bg-white text-blue-600 px-6 py-3 rounded-xl font-black uppercase text-xs hover:bg-blue-50 transition-colors tracking-widest">
-                    Join Now
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Main Footer -->
-    <footer class="bg-slate-900 text-white pt-24 pb-12 overflow-hidden relative">
+    <footer class="bg-slate-900 text-white pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden relative">
         <div class="absolute bottom-0 right-0 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[150px] translate-y-1/2 translate-x-1/2 -z-0"></div>
 
-        <div class="max-w-[1500px] w-full mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 border-b border-white/5 pb-20">
+        <div class="max-w-[1500px] w-full mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 border-b border-white/5 pb-10 md:pb-20">
             <!-- Branding -->
             <div class="space-y-8">
                 <div class="flex items-center gap-2">
@@ -83,7 +67,7 @@ import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, ArrowRight, Mess
         </div>
 
         <!-- Copyright -->
-        <div class="max-w-[1500px] w-full mx-auto px-6 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+        <div class="max-w-[1500px] w-full mx-auto px-6 pt-8 md:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 relative z-10">
             <p class="text-slate-500 text-sm font-bold uppercase tracking-widest">
                 &copy; 2026 ISO SYSTEMS - ALL RIGHTS RESERVED
             </p>

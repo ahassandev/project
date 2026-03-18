@@ -8,7 +8,6 @@ const showSuccess = ref(false);
 const form = useForm({
     name: '',
     email: '',
-    service: 'Select Certification',
     phone: '',
     message: '',
 });
@@ -28,8 +27,8 @@ const submit = () => {
 </script>
 
 <template>
-    <section class="py-24 px-6 bg-white overflow-hidden">
-        <div class="max-w-[1500px] w-full mx-auto grid lg:grid-cols-2 gap-16 items-start">
+    <section id="request-a-call-back" class="py-16 md:py-24 px-6 bg-white overflow-hidden">
+        <div class="max-w-[1500px] w-full mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div class="space-y-8">
                 <h2 class="text-4xl md:text-6xl font-black text-slate-900 leading-none">
                     REQUEST A <br/><span class="text-blue-600 uppercase">CALL BACK</span>
@@ -58,7 +57,7 @@ const submit = () => {
                     </a>
                 </div>
             </div>
-            <div class="bg-blue-50 border border-blue-100 p-8 md:p-12 rounded-3xl shadow-2xl shadow-blue-900/10">
+            <div class="bg-blue-50 border border-blue-100 p-6 md:p-12 rounded-3xl shadow-2xl shadow-blue-900/10">
                 <div v-if="showSuccess" class="mb-8 p-4 bg-green-100 border border-green-200 text-green-800 rounded-xl font-bold text-center animate-bounce">
                     Thank you! Your request has been sent successfully.
                 </div>
@@ -78,18 +77,7 @@ const submit = () => {
                                :class="{'border-red-500': form.errors.email}" />
                         <div v-if="form.errors.email" class="text-red-500 text-xs font-bold pl-1">{{ form.errors.email }}</div>
                     </div>
-                    <div class="space-y-2">
-                        <label class="text-xs font-black uppercase text-blue-900 tracking-wider pl-1">Service Type</label>
-                        <select v-model="form.service" class="w-full bg-white border border-blue-200 px-5 py-4 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-semibold text-slate-500"
-                                :class="{'border-red-500': form.errors.service}">
-                            <option disabled>Select Certification</option>
-                            <option>ISO 9001</option>
-                            <option>ISO 14001</option>
-                            <option>OHSAS 18001</option>
-                        </select>
-                        <div v-if="form.errors.service" class="text-red-500 text-xs font-bold pl-1">{{ form.errors.service }}</div>
-                    </div>
-                    <div class="space-y-2">
+                    <div class="md:col-span-2 space-y-2">
                         <label class="text-xs font-black uppercase text-blue-900 tracking-wider pl-1">Phone</label>
                         <input v-model="form.phone" type="text" placeholder="+92 000 000 0000"
                                class="w-full bg-white border border-blue-200 px-5 py-4 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all placeholder:text-slate-300 font-semibold"

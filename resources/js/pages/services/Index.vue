@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import AppLayout from '@/layouts/AppLayout.vue';
+import Pagination from '@/components/Pagination.vue';
 import type { BreadcrumbItem } from '@/types';
 
 function debounce<T extends (...args: any[]) => void>(fn: T, delay: number) {
@@ -26,8 +27,13 @@ interface Service {
     } | null;
 }
 
+interface PaginatedServices {
+    data: Service[];
+    links: Array<{ url: string | null; label: string; active: boolean }>;
+}
+
 const props = defineProps<{
-    services: Service[];
+    services: PaginatedServices;
     filters?: {
         search?: string;
     };
@@ -88,7 +94,7 @@ watch(search, debounce((value: string) => {
                         </tr>
                     </thead>
                     <tbody class="divide-y">
-                        <tr v-for="service in services" :key="service.id" class="hover:bg-muted/50 transition-colors group">
+                        <tr v-for="service in services.data" :key="service.id" class="hover:bg-muted/50 transition-colors group">
                             <td class="px-6 py-4 font-medium decoration-primary decoration-2 group-hover:underline cursor-pointer" @click="router.get(`/services/${service.id}`)">
                                 {{ service.title }}
                             </td>
@@ -119,7 +125,10 @@ watch(search, debounce((value: string) => {
                 </table>
             </div>
 
-            <div v-if="services.length === 0" class="text-center py-12 bg-background border rounded-lg mt-6">
+            <!-- Pagination Component -->
+            <Pagination class="mt-6" :links="services.links" />
+
+            <div v-if="services.data.length === 0" class="text-center py-12 bg-background border rounded-lg mt-6">
                 <p class="text-muted-foreground text-sm">No services found. Create your first service!</p>
             </div>
         </div>

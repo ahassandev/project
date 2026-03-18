@@ -18,10 +18,7 @@ class ServiceController extends Controller
         return Inertia::render('services/Index', [
             'services' => Service::query()
                 ->with(['images', 'parent'])
-                ->when($request->input('search'), function ($query, $search) {
-                    $query->where('title', 'like', "%{$search}%");
-                })
-                ->get(),
+                ->paginateWithSearch($request->input('search'), 10),
             'filters' => $request->only(['search']),
         ]);
     }

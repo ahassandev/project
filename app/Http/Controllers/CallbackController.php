@@ -21,7 +21,6 @@ class CallbackController extends Controller
                 'regex:/^[a-zA-Z\s]+$/'
             ],
             'email' => 'required|email|max:255',
-            'service' => 'required|string',
             'phone' => ['required', 'string', 'regex:/^[0-9]{11}$/'],
             'message' => 'required|string',
         ], [

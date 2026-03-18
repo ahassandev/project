@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-vue-next';
 
 <template>
     <!-- Hero Section -->
-    <section class="relative min-h-[95vh] flex items-center pt-28 pb-40 overflow-hidden">
+    <section class="relative min-h-[95vh] flex items-center pt-20 md:pt-28 pb-20 md:pb-40 overflow-hidden">
         <!-- Background with Gradient/Pattern -->
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-linear-to-br from-blue-900/40 to-slate-900/80 z-10"></div>
